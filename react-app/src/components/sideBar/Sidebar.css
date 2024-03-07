@@ -1,0 +1,31 @@
+.sidebar_link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-bottom: 1px solid var(--main);
+}
+
+.sidebar_link:hover {
+  background-color: var(--main2);
+}
+
+.icon {
+  color: var(--main);
+}
+
+.sidebar_items {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-bottom: 1px solid var(--main);
+}
+
+.sidebar_items:hover {
+  background-color: var(--theme2);
+}
+
+.sidebar {
+  width: 200px;
+  height: 200px;
+  padding-right: 20px;
+}

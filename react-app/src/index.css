@@ -1,0 +1,57 @@
+/* TODO Add site wide styles */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  /* box-sizing: border-box; */
+  font-family: "Montserrat", sans-serif;
+}
+
+.home_container {
+  background: var(--background1);
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+}
+
+:root {
+  --main: rgba(64, 174, 14, 0.564);
+  --theme2: rgba(65, 174, 14, 0.171);
+  --text1: rgba(0, 0, 0, 1);
+  --text2: rgba(255, 255, 255, 1);
+  --background1: rgb(241, 236, 234, 1);
+  --background2: rgba(255, 255, 255, 1);
+}
+/* :root {
+  --main: #a239ca;
+  --theme2: rgba(65, 174, 14, 0.171);
+  --text1: rgba(0, 0, 0, 1);
+  --text2: rgba(255, 255, 255, 1);
+  --background2: #e3eaf6;
+  --background1: white;
+} */
+
+body {
+  background-color: white;
+}
+
+button {
+  color: white;
+  font-weight: 500;
+  padding: 5px 10px;
+  background-color: var(--main);
+  cursor: pointer;
+  border: none;
+  border-radius: 500px;
+  transition: 0.5s;
+}
+
+button:hover {
+  box-shadow: 0 0 7.5px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+}
+
+.MuiSvgIcon-root {
+  color: var(--main);
+}

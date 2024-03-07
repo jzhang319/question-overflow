@@ -1,0 +1,142 @@
+.individual-answer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: 5px;
+
+  background-color: var(--background1);
+}
+
+.ans-vote-container-REPLACE-LATER {
+  display: flex;
+
+  color: inherit;
+  background: var(--background2);
+}
+.ans-vote-container-REPLACE-LATER:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.a-v-c-profile {
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  position: relative;
+}
+.a-v-c-profile > img {
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.a-v-c-content,
+.vote-container {
+  width: 100%;
+  padding-right: 20px;
+  margin-bottom: 5px;
+}
+
+.ans-detail-con {
+  width: 100%;
+  margin-bottom: 5px;
+  height: 21px;
+}
+.ans-detail-con > input {
+  border: none;
+  font-size: 16px;
+  width: 100%;
+  background-color: #f9f8f7;
+}
+.reply_container {
+  margin-bottom: 15px;
+  background-color: #8bc34ab4;
+}
+
+.vote_container {
+  display: flex;
+  width: 100px;
+  border: 2px solid black;
+  border-radius: 999px;
+  padding-bottom: 15px;
+  height: 10px;
+}
+
+.ans-user-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.ans-username {
+  font-size: 18px;
+  font-weight: 500;
+}
+.ans-timestamp {
+  font-size: 14px;
+}
+
+.vote-container {
+  display: flex;
+}
+.ans-crud-options {
+  margin-bottom: 5px;
+}
+
+.upvote-con,
+.downvote-con {
+  min-width: 60px;
+  display: flex;
+}
+.upvote-total,
+.thumbs-up-button,
+.downvote-total,
+.thumbs-down-button {
+  width: 24px;
+  height: 24px;
+}
+.upvote-total,
+.downvote-total {
+  position: relative;
+}
+.upvote-total > div,
+.downvote-total > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+.edit-button {
+  margin-right: 5px;
+}
+
+.ans-username,
+.ans-timestamp,
+.ans-detail-con,
+.upvote-total > div,
+.downvote-total > div {
+  color: var(--text1);
+}
+
+.answer-error {
+  padding: 5px 0;
+  list-style-type: none;
+  color: red;
+}
+
+.thumbs-down-button,
+.thumbs-up-button {
+  cursor: pointer;
+}
+.thumbs-up-button-icon {
+  color: grey;
+}
+.thumbs-up-button-icon-green {
+  color: green;
+}
+.thumbs-up-button-icon-red {
+  color: red;
+}
