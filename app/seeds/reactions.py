@@ -1,5 +1,5 @@
 from app.models import db, Answer, environment, SCHEMA, Reaction
-
+from sqlalchemy import text
 
 def seed_reactions():
     demo = Reaction(
@@ -42,6 +42,6 @@ def undo_reactions():
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM reactions")
+        db.session.execute(text("DELETE FROM reactions"))
 
     db.session.commit()

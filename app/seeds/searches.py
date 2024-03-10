@@ -1,5 +1,5 @@
 from app.models import db, Question, environment, SCHEMA, Search
-
+from sqlalchemy import text
 
 def seed_searches():
     demo = Search(
@@ -18,6 +18,6 @@ def undo_searches():
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM searches")
+        db.session.execute(text("DELETE FROM searches"))
 
     db.session.commit()

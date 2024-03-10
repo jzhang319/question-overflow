@@ -1,5 +1,5 @@
 from app.models import db, Answer, environment, SCHEMA
-
+from sqlalchemy import text
 
 def seed_answers():
     demo = Answer(
@@ -58,6 +58,6 @@ def undo_answers():
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM answers")
+        db.session.execute(text("DELETE FROM answers"))
 
     db.session.commit()

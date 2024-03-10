@@ -1,5 +1,5 @@
 from app.models import db, Question, environment, SCHEMA
-
+from sqlalchemy import text
 
 def seed_questions():
     demo = Question(
@@ -51,6 +51,6 @@ def undo_questions():
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM questions")
+        db.session.execute(text("DELETE FROM questions"))
 
     db.session.commit()
