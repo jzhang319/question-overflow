@@ -208,7 +208,7 @@ function QuestionDetail() {
                       <div className="ind-ques-body">{question.detail}</div>
                       <div className="ind-ques-image">
                         {question?.url ? (
-                          <img src={question.url} alt="" />
+                          <img src={question.url} alt="question image" />
                         ) : null}
                       </div>
                     </div>
@@ -253,7 +253,7 @@ function QuestionDetail() {
                   </div>
                   <form onSubmit={addAnswer} className="add-answer">
                     <div className="a-a-left">
-                      <img src={user?.profile_url} alt='' />
+                      <img src={user?.profile_url} alt='profile image2' />
                     </div>
                     <div className="a-a-middle">
                       <input

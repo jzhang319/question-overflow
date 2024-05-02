@@ -18,7 +18,7 @@ function IndividualQuestion({
         <div className="question-content">
           <div className="q-c-logo">
             {(
-              <img src={user.profile_url} alt="" className="profile-logo-icon" />
+              <img src={user.profile_url} alt="profile image1" className="profile-logo-icon" />
             ) || (
               <QuizIcon fontSize="large" className="q-c-logo-icon"></QuizIcon>
             )}
