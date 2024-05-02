@@ -5,13 +5,13 @@ from sqlalchemy import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', profile_url='https://cdn.discordapp.com/attachments/885032629299212308/1216252913798877254/profile_image-1.jpeg?ex=65ffb6cb&is=65ed41cb&hm=bf8805106f1010c50f2a13931af3965be4895b0280b54d60b31ea6bc0f0a1e6a&')
+        username='Demo', email='demo@aa.io', password='password', profile_url='https://cdn.discordapp.com/attachments/885032629299212308/1235671323729203321/Z.png?ex=66353819&is=6633e699&hm=64c4cf8b36be9366cb178bad0ee30b7f39148c80711cc6d735eb8f8ecaa83ada&')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', profile_url='https://cdn.discordapp.com/attachments/885032629299212308/1216252963706896535/profile_image-2.png?ex=65ffb6d7&is=65ed41d7&hm=48cdda0173641a57a1a20ba155d3d3a144767a1a1370df3ff3ed2bbf3dc94027&')
+        username='marnie', email='marnie@aa.io', password='password', profile_url='https://cdn.discordapp.com/attachments/885032629299212308/1235671445661814844/E3iyNtMQ1ksOp1N7mEBY0USRiJW2kvuv3eajzY7sIIgSLHdjBe9frdRbuSckhkIf8Hv1E2luXy6qsAAAAASUVORK5CYII.png?ex=66353836&is=6633e6b6&hm=b4d86434cb61effd49f58afc201be373d38d9966264bb425df65d580308c03ea&')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password', profile_url='https://cdn.discordapp.com/attachments/885032629299212308/1216252991859064933/profile_image-3.jpeg?ex=65ffb6de&is=65ed41de&hm=a7472a7a7eab04000d3b3bb503cba093cfd9251fe3f0ae4ffc099228a2ace6fd&')
+        username='bobbie', email='bobbie@aa.io', password='password', profile_url='https://cdn.discordapp.com/attachments/885032629299212308/1235671582681075823/images.png?ex=66353856&is=6633e6d6&hm=345584951bd6b9353f6e1f8289cfeeeb1a62569ff7ff315560e79aa56763171b&')
     dave = User(
-        username='dave', email='dave@aa.io', password='password', profile_url='https://cdn.discordapp.com/attachments/885032629299212308/1216253022393466880/profile_image-4.png?ex=65ffb6e5&is=65ed41e5&hm=1c4ee54cc1704b48804f2b7c06daf98091c6afa8575056f09d52b02113bbca97&')
+        username='dave', email='dave@aa.io', password='password', profile_url='https://cdn.discordapp.com/attachments/885032629299212308/1235671483582382191/images.png?ex=6635383f&is=6633e6bf&hm=30c10b8a208db5e165566dab835e13ad1410dc082313e5cae1892cdfeb31e007&')
 
     db.session.add(demo)
     db.session.add(marnie)
