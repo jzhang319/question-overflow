@@ -62,13 +62,13 @@ def https_redirect():
             code = 301
             return redirect(url, code=code)
 
-@app.before_request
-def before_request():
-    if request.endpoint and 'static' not in request.endpoint:
-        if not current_user.is_authenticated:
-            return redirect(url_for('auth.login'))
-        elif not current_user.is_active:
-            return redirect(url_for('auth.unconfirmed'))
+# @app.before_request
+# def before_request():
+#     if request.endpoint and 'static' not in request.endpoint:
+#         if not current_user.is_authenticated:
+#             return redirect(url_for('auth.login'))
+#         elif not current_user.is_active:
+#             return redirect(url_for('auth.unconfirmed'))
 
 
 @app.after_request
@@ -82,9 +82,9 @@ def inject_csrf_token(response):
         httponly=True)
     return response
 
-@app.route('/<path:filename>')
-def static_files(filename):
-    return send_from_directory(os.path.join(app.root_path, 'static'), filename)
+# @app.route('/<path:filename>')
+# def static_files(filename):
+#     return send_from_directory(os.path.join(app.root_path, 'static'), filename)
 
 
 @app.route("/api/docs")
