@@ -1,7 +1,7 @@
 const GET_SEARCHES = "search/GET_SEARCHES";
 const GET_USER_SEARCHES = "search/GET_USER_SEARCHES";
 const DELETE_SEARCHES = "search/DELETE_SEARCHES";
-
+ 
 const getSearch = (searches) => {
   return {
     type: GET_SEARCHES,
