@@ -38,6 +38,14 @@
   background: #f9f8f7;
 }
 
+.search_input {
+  border: none;
+  outline: none;
+  background: #f9f8f7;
+
+}
+
+
 .header_left {
   display: flex;
   padding-left: 20px;

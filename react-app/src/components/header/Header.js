@@ -52,16 +52,20 @@ function Header() {
         </div>
 
         <div className="header_center">
-          <i className="fa-solid fa-magnifying-glass"></i>
-          <input
-            className="search_input"
-            type="search"
-            name="q"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search for questions ..."
-          />
-           <button className="header_search_button" onClick={search}>Search</button>
+          <form onSubmit={search}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <input
+              className="search_input"
+              type="search"
+              name="q"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search for questions ..."
+            />
+            <button className="header_search_button" type="submit">
+              Search
+            </button>
+          </form>
         </div>
 
         <AskQuestionModal />
@@ -84,21 +88,27 @@ function Header() {
           </NavLink>
         </div>
 
-
-        <button className='demo_login_button'onClick={handleDemoLogin}>Demo Login</button>
+        <button className="demo_login_button" onClick={handleDemoLogin}>
+          Demo Login
+        </button>
 
         <div className="header_center">
-          <i className="fa-solid fa-magnifying-glass"></i>
-          <input
-            className="search_input"
-            type="search"
-            name="q"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search for questions ..."
-          />
-          <button className="header_search_button" onClick={search}>Search</button>
+          <form onSubmit={search}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <input
+              className="search_input"
+              type="search"
+              name="q"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search for questions ..."
+            />
+            <button className="header_search_button" type="submit">
+              Search
+            </button>
+          </form>
         </div>
+
         {/* <AskQuestionModal /> */}
 
         <div className="header_right">
