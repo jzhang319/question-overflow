@@ -4,6 +4,10 @@
 
 Question Overflow, a StackOverflow clone, is a website for users to share brief questions, engage in light discussion, where they and users can vote on posted answers.
 
+## SCHEMA for the project
+![Screenshot 2024-09-18 at 5 18 35 PM](https://github.com/user-attachments/assets/02bdcbfc-098f-4bd1-aeb9-1fa727c05b66)
+
+
 # Images
 
 ## Homepage
