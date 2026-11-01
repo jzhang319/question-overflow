@@ -1,5 +1,6 @@
 
 from flask.cli import AppGroup
+from sqlalchemy import text
 from .users import seed_users, undo_users
 from .questions import seed_questions, undo_questions
 from .answers import seed_answers, undo_answers
@@ -28,15 +29,15 @@ def seed():
         undo_reactions()
 
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
         db.session.commit()
 
     seed_users()

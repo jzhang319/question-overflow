@@ -41,7 +41,7 @@ def ans_reactions_formatter(inputs):
 
 @answer_routes.route("/<int:id>", methods=["GET"])
 def get_answer(id):
-    desired_answer = Answer.query.get(id)
+    desired_answer = db.session.get(Answer, id)
     return desired_answer.to_dict()
 
 
@@ -68,7 +68,7 @@ def edit_answer(id):
 
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        desired_answer = Answer.query.get(id)
+        desired_answer = db.session.get(Answer, id)
         if desired_answer.user_id == current_user.id:
             desired_answer.answer = form.data["answer"]
             desired_answer.url = form.data["url"]
@@ -84,7 +84,7 @@ def edit_answer(id):
 @answer_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_answer(id):
-    desired_answer = Answer.query.get(id)
+    desired_answer = db.session.get(Answer, id)
     if desired_answer.user_id == current_user.id:
         db.session.delete(desired_answer)
         db.session.commit()
@@ -97,7 +97,7 @@ def delete_answer(id):
 @login_required
 def post_answer(id):
 
-    selected_question = Question.query.get(id)
+    selected_question = db.session.get(Question, id)
 
     form = AnswerForm()
     form['csrf_token'].data = request.cookies['csrf_token']

@@ -43,7 +43,7 @@ def quest_ans_formatter(inputs):
 
 @questions_routes.route("/<int:id>", methods=["GET"])
 def get_question(id):
-    desired_question = Question.query.get(id)
+    desired_question = db.session.get(Question, id)
     final_input = object_as_dict(desired_question)
     answers = []
     user = object_as_dict(desired_question.user)
@@ -64,7 +64,7 @@ def edit_question(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        desired_question = Question.query.get(id)
+        desired_question = db.session.get(Question, id)
         if desired_question.user_id == current_user.id:
             desired_question.question = form.data["question"]
             desired_question.detail = form.data["detail"]
@@ -81,7 +81,7 @@ def edit_question(id):
 @questions_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_question(id):
-    desired_question = Question.query.get(id)
+    desired_question = db.session.get(Question, id)
     if desired_question.user_id == current_user.id:
         db.session.delete(desired_question)
         db.session.commit()

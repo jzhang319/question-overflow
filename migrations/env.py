@@ -30,7 +30,11 @@ logger = logging.getLogger('alembic.env')
 from flask import current_app
 config.set_main_option(
     'sqlalchemy.url',
-    str(current_app.extensions['migrate'].db.engine.url).replace('%', '%%'))
+    # SQLAlchemy 2.0 made str(url) mask the password with "***" by default
+    # (it was shown in full under 1.4); render_as_string(hide_password=False)
+    # is the 2.0 way to get the real, connectable URL back out.
+    current_app.extensions['migrate'].db.engine.url.render_as_string(
+        hide_password=False).replace('%', '%%'))
 target_metadata = current_app.extensions['migrate'].db.metadata
 
 # other values from the config, defined by the needs of env.py,
@@ -107,7 +111,7 @@ def run_migrations_online():
                 {"schema": SCHEMA}
             ).scalar()
             if not schema_exists:
-                connection.execute(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}")
+                connection.execute(text(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}"))
 
         # Set search path to your schema (only in production)
         with context.begin_transaction():
