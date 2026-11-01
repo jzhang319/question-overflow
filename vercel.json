@@ -6,5 +6,9 @@
     "api/index.py": {
       "includeFiles": "app/**"
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
