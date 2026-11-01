@@ -1,0 +1,14 @@
+{
+  "buildCommand": "cd react-app && npm ci && npm run build",
+  "outputDirectory": "react-app/build",
+  "regions": ["sfo1"],
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "app/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
