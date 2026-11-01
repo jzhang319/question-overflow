@@ -90,9 +90,17 @@ def run_migrations_online():
             process_revision_directives=process_revision_directives,
             **current_app.extensions['migrate'].configure_args
         )
-        # Create a schema (only in production)
+        # Create a schema (only in production). Skip the DDL entirely if the
+        # schema already exists: "CREATE SCHEMA IF NOT EXISTS" still requires
+        # CREATE privilege on the database, which a role scoped to its own
+        # schema (e.g. a shared-Postgres-project app role) won't have.
         if environment == "production":
-            connection.execute(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}")
+            schema_exists = connection.execute(
+                "SELECT 1 FROM information_schema.schemata WHERE schema_name = %(schema)s",
+                {"schema": SCHEMA}
+            ).scalar()
+            if not schema_exists:
+                connection.execute(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}")
 
         # Set search path to your schema (only in production)
         with context.begin_transaction():
