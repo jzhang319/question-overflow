@@ -28,16 +28,6 @@ def seed():
         undo_searches()
         undo_reactions()
 
-        db.session.execute(
-            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
-        db.session.execute(
-            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
-        db.session.execute(
-            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
-        db.session.execute(
-            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
-        db.session.execute(
-            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
         db.session.commit()
 
     seed_users()

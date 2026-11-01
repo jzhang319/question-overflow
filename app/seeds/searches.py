@@ -16,7 +16,7 @@ def seed_searches():
 def undo_searches():
     if environment == "production":
         db.session.execute(
-            text(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;"))
+            text(f"TRUNCATE table {SCHEMA}.searches RESTART IDENTITY CASCADE;"))
     else:
         db.session.execute(text("DELETE FROM searches"))
 
