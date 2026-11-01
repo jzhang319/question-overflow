@@ -8,11 +8,12 @@ updates:
       interval: "monthly"
     open-pull-requests-limit: 5
     groups:
-      minor-and-patch:
-        update-types: ["minor", "patch"]
+      patch:
+        update-types: ["patch"]
     ignore:
+      # Flask 2.0.1 stack: minor bumps broke prod (itsdangerous 2.2 -> 500). Patch only.
       - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
   - package-ecosystem: "npm"
     directory: "/react-app"
     schedule:
