@@ -5,6 +5,7 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
+from sqlalchemy import text
 
 from alembic import context
 
@@ -93,10 +94,16 @@ def run_migrations_online():
         # Create a schema (only in production). Skip the DDL entirely if the
         # schema already exists: "CREATE SCHEMA IF NOT EXISTS" still requires
         # CREATE privilege on the database, which a role scoped to its own
-        # schema (e.g. a shared-Postgres-project app role) won't have.
+        # schema (e.g. a shared-Postgres-project app role) won't have. In
+        # that setup the schema must already be pre-created and owned by
+        # the app role, since the role has no CREATE on the database itself.
+        # Query pg_namespace (always visible) rather than
+        # information_schema.schemata, which is filtered to schemas the
+        # connected role can see and would make a "does it exist" check
+        # against another schema unreliable.
         if environment == "production":
             schema_exists = connection.execute(
-                "SELECT 1 FROM information_schema.schemata WHERE schema_name = %(schema)s",
+                text("SELECT 1 FROM pg_namespace WHERE nspname = :schema"),
                 {"schema": SCHEMA}
             ).scalar()
             if not schema_exists:
