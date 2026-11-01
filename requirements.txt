@@ -22,6 +22,8 @@ mako==1.1.4
 markupsafe==2.0.1
 python-dateutil==2.8.1
 python-dotenv==0.14.0
+# 2.9.13+ required: Vercel's pre-build step resolves these under CPython 3.14 (no 2.9.9 wheel there),
+# even though the function itself runs Python 3.12 from .python-version / Pipfile.lock.
 psycopg2-binary==2.9.13
 python-editor==1.0.4
 setuptools<81
